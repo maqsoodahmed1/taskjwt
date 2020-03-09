@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
    CurrentToken:{
        type:String
    }
+   ,UserRole:{
+       type:Number
+   }
 })
 
 const user = mongoose.model('User',userSchema)
@@ -41,6 +44,7 @@ validateUser = (users) =>{
         Name:Joi.string().min(5).max(255).required(),
         Email:Joi.string().min(5).max(255).required().email(),
         Password:Joi.string().min(5).max(255).required(),
+        UserRole:Joi.number().required()
 
     }
 
